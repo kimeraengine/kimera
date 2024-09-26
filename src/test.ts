@@ -41,6 +41,8 @@ function Shootable<TBase extends Constructor<IGameObject>>(Base: TBase) {
 
 class GameObject implements IGameObject {
   constructor(public name: string) {}
+
+  update() {}
 }
 
 class Test extends GameObject {}
@@ -50,6 +52,10 @@ class Player extends Movable(Shootable(GameObject)) {
     console.log(`${this.name} is acting:`);
     this.move();
     this.shoot();
+  }
+
+  update(): void {
+    console.log("Player update");
   }
 }
 
